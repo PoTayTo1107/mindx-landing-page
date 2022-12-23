@@ -9,9 +9,10 @@ const StyledTypo = styled(Typography)(({ theme }) => ({
     fontSize: '14px',
     lineHeight: '24px',
     textAlign: 'center',
-    letterSpacing: '0.2px',
+    letterSpacing: '1px',
     color: '#FFFFFF',
-    padding: '14px 0'
+    padding: '14px 0',
+    cursor: 'pointer'
 }));
 
 const ButtonTypo = styled(Typography)(({ theme }) => ({
@@ -43,7 +44,7 @@ const MainBox = styled(Box)(({ theme }) => ({
 const Header = () => {
     return (
         <MainBox>
-            <Box sx={{ paddingLeft: '100px' }}>
+            <Box sx={{ paddingLeft: '120px', cursor: 'pointer' }}>
                 <img src={logo_white} alt="Logo" width={134} height={52} />
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>

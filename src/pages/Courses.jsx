@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 
 const Courses = () => {
     return (
-        <Box>
+        <Box sx={{ height: '970px' }}>
             <Box>Hi</Box>
         </Box>
     );
