@@ -44,10 +44,10 @@ const MainBox = styled(Box)(({ theme }) => ({
 const Header = () => {
     return (
         <MainBox>
-            <Box sx={{ paddingLeft: '120px', cursor: 'pointer' }}>
+            <Box sx={{ paddingLeft: '140px', cursor: 'pointer' }}>
                 <img src={logo_white} alt="Logo" width={134} height={52} />
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '550px', marginRight: '100px' }}>
                 <StyledTypo variant="h6">Trang chủ</StyledTypo>
                 <StyledTypo variant="h6">Về chúng tôi</StyledTypo>
                 <StyledTypo variant="h6">Khoá học</StyledTypo>
