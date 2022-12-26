@@ -12,7 +12,10 @@ const StyledTypo = styled(Typography)(({ theme }) => ({
     letterSpacing: '1px',
     color: '#FFFFFF',
     padding: '14px 0',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    [theme.breakpoints.down('md')]: {
+        display: 'none'
+    }
 }));
 
 const ButtonTypo = styled(Typography)(({ theme }) => ({
@@ -38,21 +41,43 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const MainBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
-    padding: '19px 85px 19px'
+    padding: '19px 85px 19px',
+    [theme.breakpoints.down('md')]: {
+        padding: 0
+    }
+}));
+
+const LogoBox = styled(Box)(({ theme }) => ({
+    paddingLeft: '140px',
+    cursor: 'pointer',
+    [theme.breakpoints.down('md')]: {
+        padding: 0
+    }
+}));
+
+const ContentBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '550px',
+    marginRight: '100px',
+    [theme.breakpoints.down('md')]: {
+        width: '100%',
+        marginRight: 0
+    }
 }));
 
 const Header = () => {
     return (
         <MainBox>
-            <Box sx={{ paddingLeft: '140px', cursor: 'pointer' }}>
+            <LogoBox>
                 <img src={logo_white} alt="Logo" width={134} height={52} />
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '550px', marginRight: '100px' }}>
+            </LogoBox>
+            <ContentBox>
                 <StyledTypo variant="h6">Trang chủ</StyledTypo>
                 <StyledTypo variant="h6">Về chúng tôi</StyledTypo>
                 <StyledTypo variant="h6">Khoá học</StyledTypo>
                 <StyledTypo variant="h6">Liên hệ</StyledTypo>
-            </Box>
+            </ContentBox>
             <StyledButton>
                 <ButtonTypo>Login</ButtonTypo>
                 <Box sx={{ paddingLeft: '15px' }}>

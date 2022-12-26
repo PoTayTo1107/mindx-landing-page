@@ -9,13 +9,11 @@ const BlueBox = styled(Box)(({ theme }) => ({
 
 function App() {
     return (
-        <Box>
+        <Box sx={{ borderRadius: '40px' }}>
             <BlueBox>
                 <Header />
                 <Intro />
-            </BlueBox>
-            <Courses />
-            <BlueBox>
+                <Courses />
                 <Howitworks />
             </BlueBox>
             <Footer />

@@ -157,9 +157,27 @@ const AvaBox = styled(Box)(({ theme }) => ({
     zIndex: 3
 }));
 
+const MainBox = styled(Box)(({ theme }) => ({
+    height: '900px'
+}));
+
+const AvatarBox = styled(Box)(({ theme }) => ({
+    marginTop: '40px',
+    zIndex: 2,
+    [theme.breakpoints.down('md')]: {
+        margin: 0,
+        width: '50%'
+    }
+}));
+
+const StatBox = styled(Box)(({ theme }) => ({
+    position: 'absolute',
+    margin: '0 40px 20px'
+}));
+
 const Intro = () => {
     return (
-        <Box sx={{ height: '900px' }}>
+        <MainBox>
             <Box sx={{ display: 'flex', justifyContent: 'center', height: '700px' }}>
                 <ContentBox>
                     <Typo1>Đào tạo trực tuyến cùng MindX</Typo1>
@@ -178,25 +196,21 @@ const Intro = () => {
                 <SplashBox1 />
                 <SplashBox2 />
 
-                <Box sx={{ marginTop: '40px', zIndex: 2 }}>
+                <AvatarBox>
                     <img src={avatar} alt="Avatar" height={480} />
-                </Box>
+                </AvatarBox>
 
                 <AvaBox>
                     <Typo5>199+</Typo5>
                     <Typo6>
                         Học viên đã <br /> hoàn thành <br /> khoá học
                     </Typo6>
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            margin: '0 40px 20px'
-                        }}>
+                    <StatBox>
                         <img src={graph} alt="Graph" />
-                    </Box>
+                    </StatBox>
                 </AvaBox>
             </Box>
-        </Box>
+        </MainBox>
     );
 };
 
