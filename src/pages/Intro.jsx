@@ -20,7 +20,10 @@ const Typo2 = styled(Typography)(({ theme }) => ({
     lineHeight: '80px',
     letterSpacing: '3px',
     color: '#FFFFFF',
-    margin: '15px 0'
+    margin: '15px 0',
+    [theme.breakpoints.down('md')]: {
+        fontSize: '50px'
+    }
 }));
 
 const Typo3 = styled(Typography)(({ theme }) => ({
@@ -30,7 +33,10 @@ const Typo3 = styled(Typography)(({ theme }) => ({
     lineHeight: '30px',
     letterSpacing: '1px',
     color: '#FFFFFF',
-    margin: '15px 0'
+    margin: '15px 0',
+    [theme.breakpoints.down('md')]: {
+        fontSize: '14px'
+    }
 }));
 
 const Typo4 = styled(Typography)(({ theme }) => ({
@@ -53,7 +59,11 @@ const Typo5 = styled(Typography)(({ theme }) => ({
     letterSpacing: '3.2px',
     color: '#000',
     marginLeft: '50px',
-    zIndex: 4
+    zIndex: 4,
+    [theme.breakpoints.down('md')]: {
+        letterSpacing: 0,
+        fontSize: '50px'
+    }
 }));
 
 const Typo6 = styled(Typography)(({ theme }) => ({
@@ -65,7 +75,11 @@ const Typo6 = styled(Typography)(({ theme }) => ({
     color: '#000',
     textTransform: 'uppercase',
     marginRight: '42px',
-    zIndex: 4
+    zIndex: 4,
+    [theme.breakpoints.down('md')]: {
+        letterSpacing: 0,
+        fontSize: '16px'
+    }
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -78,7 +92,11 @@ const StyledButton = styled(Button)(({ theme }) => ({
     '&:hover': { backgroundColor: '#3649F9' },
     width: '210px',
     height: '52px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    [theme.breakpoints.down('md')]: {
+        width: '40%',
+        padding: '20px'
+    }
 }));
 
 const OutlinedButton = styled(Button)(({ theme }) => ({
@@ -91,7 +109,11 @@ const OutlinedButton = styled(Button)(({ theme }) => ({
     width: '210px',
     height: '52px',
     cursor: 'pointer',
-    border: 'solid 1px #3649F9'
+    border: 'solid 1px #3649F9',
+    [theme.breakpoints.down('md')]: {
+        width: '40%',
+        padding: '20px'
+    }
 }));
 
 const SplashBox1 = styled(Box)(({ theme }) => ({
@@ -111,6 +133,11 @@ const SplashBox1 = styled(Box)(({ theme }) => ({
         '100%': {
             borderRadius: '68% 32% 47% 53% / 34% 49% 51% 66%'
         }
+    },
+    [theme.breakpoints.down('md')]: {
+        top: '700px',
+        right: 40,
+        width: '80%'
     }
 }));
 
@@ -131,6 +158,11 @@ const SplashBox2 = styled(Box)(({ theme }) => ({
         '100%': {
             borderRadius: '68% 32% 63% 37% / 41% 67% 33% 59%'
         }
+    },
+    [theme.breakpoints.down('md')]: {
+        top: '700px',
+        right: 20,
+        width: '80%'
     }
 }));
 
@@ -154,25 +186,41 @@ const AvaBox = styled(Box)(({ theme }) => ({
     borderRadius: '30px',
     justifyContent: 'space-between',
     alignItems: 'center',
-    zIndex: 3
+    zIndex: 3,
+    [theme.breakpoints.down('md')]: {
+        top: '1000px',
+        right: 30,
+        width: '80%'
+    }
 }));
 
 const MainBox = styled(Box)(({ theme }) => ({
-    height: '900px'
+    height: '900px',
+    [theme.breakpoints.down('md')]: {
+        margin: '0 20px',
+        marginTop: '200px',
+        width: '100%'
+    }
 }));
 
 const AvatarBox = styled(Box)(({ theme }) => ({
     marginTop: '40px',
     zIndex: 2,
     [theme.breakpoints.down('md')]: {
-        margin: 0,
-        width: '50%'
+        display: 'flex',
+        justifyContent: 'center',
+        margin: 0
     }
 }));
 
 const StatBox = styled(Box)(({ theme }) => ({
     position: 'absolute',
-    margin: '0 40px 20px'
+    margin: '0 40px 20px',
+    [theme.breakpoints.down('md')]: {
+        display: 'flex',
+        justifyContent: 'center',
+        margin: 0
+    }
 }));
 
 const DivBox = styled(Box)(({ theme }) => ({
@@ -184,6 +232,10 @@ const DivBox = styled(Box)(({ theme }) => ({
     }
 }));
 
+const ButtonBox = styled(Box)(({ theme }) => ({
+    marginTop: '15px'
+}));
+
 const Intro = () => {
     return (
         <MainBox>
@@ -192,14 +244,14 @@ const Intro = () => {
                     <Typo1>Đào tạo trực tuyến cùng MindX</Typo1>
                     <Typo2>Cơ hội đào tạo tốt nhất</Typo2>
                     <Typo3>Hãy đăng nhập để tham gia khoá học của chúng tôi</Typo3>
-                    <Box sx={{ marginTop: '15px' }}>
+                    <ButtonBox>
                         <StyledButton>
                             <Typo4>Tham gia đào tạo</Typo4>
                         </StyledButton>
                         <OutlinedButton>
                             <Typo4>Tìm hiểu thêm</Typo4>
                         </OutlinedButton>
-                    </Box>
+                    </ButtonBox>
                 </ContentBox>
 
                 <SplashBox1 />

@@ -15,7 +15,8 @@ const courses = [
 const StyledGrid = styled(Grid)({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginBottom: '348px'
 });
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -139,9 +140,9 @@ const RotateBox = styled(Box)(({ theme }) => ({
 
 const Courses = () => {
     return (
-        <Box sx={{ margin: '0 250px 350px' }}>
+        <Box>
             <RotateBox />
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: '60px' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', margin: '0 250px 60px' }}>
                 <HeaderTypo>
                     Một số khoá học <br /> mẫu của chúng tôi
                 </HeaderTypo>
@@ -150,7 +151,7 @@ const Courses = () => {
                 </OutlinedButton>
             </Box>
 
-            <StyledGrid>
+            <StyledGrid container>
                 {courses.map((course) => (
                     <StyledCard id={course.id} sx={course.id === '1' ? { margin: '0 105px' } : {}}>
                         <ImgBox>

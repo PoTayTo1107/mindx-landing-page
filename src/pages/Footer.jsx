@@ -1,4 +1,4 @@
-import { Box, styled, Typography } from '@mui/material';
+import { Box, OutlinedInput, styled, Typography } from '@mui/material';
 
 import logo from '../assets/logo/logo.png';
 import facebook from '../assets/social/facebook.png';
@@ -35,8 +35,8 @@ const DesTypo = styled(Typography)(({ theme }) => ({
     margin: '9px 0'
 }));
 
-const StyledInput = styled('input')(({ theme }) => ({
-    width: '170px',
+const StyledInput = styled(OutlinedInput)(({ theme }) => ({
+    width: '200px',
     height: '40px',
     borderRadius: 0,
     borderColor: 'transparent',
@@ -44,11 +44,7 @@ const StyledInput = styled('input')(({ theme }) => ({
         '0 0 0 1px rgb(53 72 91 / 4%), 0 2px 2px rgb(0 0 0 / 0%), 0 4px 4px rgb(0 0 0 / 1%), 0 10px 8px rgb(0 0 0 / 2%), 0 15px 15px rgb(0 0 0 / 2%), 0 30px 30px rgb(0 0 0 / 2%), 0 70px 65px rgb(0 0 0 / 3%)',
     '&:focus-visible': {
         outline: 'none'
-    },
-    '&:placeholder': {
-        marginLeft: '20px'
-    },
-    paddingLeft: '10px'
+    }
 }));
 
 const MainBox = styled(Box)(({ theme }) => ({
@@ -84,10 +80,7 @@ const Footer = () => {
             ))}
             <Box>
                 <TitleTypo sx={{ marginBottom: '20px' }}>Newsletter</TitleTypo>
-                <StyledInput placeholder="Email" />
-                <Box sx={{ position: 'absolute', top: 2865, right: 300 }}>
-                    <img src={send} alt="arrow" />
-                </Box>
+                <StyledInput endAdornment={<img src={send} alt="arrow" />} placeholder="Email" />
             </Box>
         </MainBox>
     );

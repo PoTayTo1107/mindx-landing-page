@@ -35,7 +35,10 @@ const StyledButton = styled(Button)(({ theme }) => ({
     '&:hover': { backgroundColor: '#3649F9' },
     borderRadius: '5px',
     height: '42px',
-    margin: '5px 0'
+    margin: '5px 0',
+    [theme.breakpoints.down('md')]: {
+        margin: '20px'
+    }
 }));
 
 const MainBox = styled(Box)(({ theme }) => ({
@@ -51,7 +54,7 @@ const LogoBox = styled(Box)(({ theme }) => ({
     paddingLeft: '140px',
     cursor: 'pointer',
     [theme.breakpoints.down('md')]: {
-        padding: 0
+        padding: '20px'
     }
 }));
 
@@ -63,6 +66,13 @@ const ContentBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         width: '100%',
         marginRight: 0
+    }
+}));
+
+const ArrowBox = styled(Box)(({ theme }) => ({
+    paddingLeft: '15px',
+    [theme.breakpoints.down('md')]: {
+        paddingLeft: '5px'
     }
 }));
 
@@ -80,9 +90,9 @@ const Header = () => {
             </ContentBox>
             <StyledButton>
                 <ButtonTypo>Login</ButtonTypo>
-                <Box sx={{ paddingLeft: '15px' }}>
+                <ArrowBox>
                     <img src={Arrow} alt="Arrow" />
-                </Box>
+                </ArrowBox>
             </StyledButton>
         </MainBox>
     );

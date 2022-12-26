@@ -4,7 +4,10 @@ import { Courses, Footer, Header, Howitworks, Intro } from './pages';
 import './App.css';
 
 const BlueBox = styled(Box)(({ theme }) => ({
-    backgroundColor: '#252B42'
+    backgroundColor: '#252B42',
+    [theme.breakpoints.down('md')]: {
+        width: '100%'
+    }
 }));
 
 function App() {
