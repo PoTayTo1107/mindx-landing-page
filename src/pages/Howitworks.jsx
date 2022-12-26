@@ -44,7 +44,12 @@ const TitleTypo = styled(Typography)(({ theme }) => ({
     lineHeight: '56px',
     letterSpacing: '0.2px',
     color: '#fff',
-    marginBottom: '65px'
+    marginBottom: '65px',
+    [theme.breakpoints.down('md')]: {
+        textAlign: 'center',
+        marginLeft: '20px',
+        marginTop: '50px'
+    }
 }));
 
 const ImgBox = styled(Box)(({ theme }) => ({
@@ -89,8 +94,7 @@ const BgBox = styled(Box)(({ theme }) => ({
     top: 1960,
     right: 30,
     [theme.breakpoints.down('md')]: {
-        width: '50%',
-        height: '50%'
+        display: 'none'
     }
 }));
 
@@ -111,16 +115,38 @@ const SmallBox = styled(Box)(({ theme }) => ({
     marginLeft: '23px'
 }));
 
+const StyledGrid = styled(Grid)(({ theme }) => ({
+    height: '830px',
+    marginLeft: '114px',
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+        margin: 0,
+        height: '1500px'
+    }
+}));
+
+const ImgGrid = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        display: 'none'
+    }
+}));
+
+const IconGrid = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        margin: '0 20%'
+    }
+}));
+
 const Howitworks = () => {
     return (
-        <Grid container sx={{ height: '830px', marginLeft: '114px', display: 'flex' }}>
+        <StyledGrid container>
             <Grid item md={6} sx={{ position: 'relative', zIndex: 1 }}>
                 <TitleTypo>
                     Các khoá học Online của <br /> chúng tôi hoạt động ra sao?
                 </TitleTypo>
-                <Grid container md={12}>
+                <IconGrid container md={12}>
                     {howit.map((data) => (
-                        <Grid item md={6}>
+                        <Grid item md={6} sm={12} xs={12}>
                             <ImgBox>
                                 <img src={data.img} width={30} height={30} alt="img" />
                             </ImgBox>
@@ -128,12 +154,12 @@ const Howitworks = () => {
                             <DesTypo>{data.des}</DesTypo>
                         </Grid>
                     ))}
-                </Grid>
+                </IconGrid>
             </Grid>
 
             <BgBox />
 
-            <Grid item md={6}>
+            <ImgGrid item md={6}>
                 <MainBox>
                     <img src={img5} width={530} height={360} alt="img" />
                 </MainBox>
@@ -148,8 +174,8 @@ const Howitworks = () => {
                         <img src={img8} width={115} height={70} alt="img" />
                     </SmallBox>
                 </Grid>
-            </Grid>
-        </Grid>
+            </ImgGrid>
+        </StyledGrid>
     );
 };
 

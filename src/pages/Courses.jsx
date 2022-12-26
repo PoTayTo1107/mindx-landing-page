@@ -12,12 +12,15 @@ const courses = [
     { title: 'Lập trình Python: Ứng dụng thực tế', time: '4 months', img: img4, id: '2' }
 ];
 
-const StyledGrid = styled(Grid)({
+const StyledGrid = styled(Grid)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '348px'
-});
+    marginBottom: '348px',
+    [theme.breakpoints.down('md')]: {
+        marginBottom: '40px'
+    }
+}));
 
 const StyledCard = styled(Card)(({ theme }) => ({
     height: '400px',
@@ -34,7 +37,10 @@ const StyledCard = styled(Card)(({ theme }) => ({
         transition: '250ms all ease-in-out'
     },
     boxShadow:
-        '0 0 0 1px rgb(53 72 91 / 4%), 0 2px 2px rgb(0 0 0 / 0%), 0 4px 4px rgb(0 0 0 / 1%), 0 10px 8px rgb(0 0 0 / 2%), 0 15px 15px rgb(0 0 0 / 2%), 0 30px 30px rgb(0 0 0 / 2%), 0 70px 65px rgb(0 0 0 / 3%)'
+        '0 0 0 1px rgb(53 72 91 / 4%), 0 2px 2px rgb(0 0 0 / 0%), 0 4px 4px rgb(0 0 0 / 1%), 0 10px 8px rgb(0 0 0 / 2%), 0 15px 15px rgb(0 0 0 / 2%), 0 30px 30px rgb(0 0 0 / 2%), 0 70px 65px rgb(0 0 0 / 3%)',
+    [theme.breakpoints.down('md')]: {
+        marginTop: '40px'
+    }
 }));
 
 const ImgBox = styled(Box)(({ theme }) => ({
@@ -51,7 +57,11 @@ const HeaderTypo = styled(Typography)(({ theme }) => ({
     fontWeight: '700',
     fontSize: '44px',
     lineHeight: '56px',
-    letterSpacing: '0.2px'
+    letterSpacing: '0.2px',
+    [theme.breakpoints.down('md')]: {
+        textAlign: 'center',
+        marginLeft: '20px'
+    }
 }));
 
 const OutlinedButton = styled(Button)(({ theme }) => ({
@@ -63,7 +73,10 @@ const OutlinedButton = styled(Button)(({ theme }) => ({
     width: '210px',
     height: '60px',
     cursor: 'pointer',
-    border: 'solid 2px #3649F9'
+    border: 'solid 2px #3649F9',
+    [theme.breakpoints.down('md')]: {
+        display: 'none'
+    }
 }));
 
 const OutlinedTypo = styled(Typography)(({ theme }) => ({
@@ -125,6 +138,25 @@ const Button2 = styled(Button)(({ theme }) => ({
     fontWeight: 400
 }));
 
+const ContentBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '0 250px 60px',
+    [theme.breakpoints.down('md')]: {
+        margin: 0
+    }
+}));
+
+const MainBox = styled(Box)(({ theme }) => ({
+    backgroundColor: '#fff',
+    [theme.breakpoints.down('md')]: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        padding: '30px 0'
+    }
+}));
+
 const RotateBox = styled(Box)(({ theme }) => ({
     height: '880px',
     width: '1800px',
@@ -140,20 +172,20 @@ const RotateBox = styled(Box)(({ theme }) => ({
 
 const Courses = () => {
     return (
-        <Box>
+        <MainBox>
             <RotateBox />
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', margin: '0 250px 60px' }}>
+            <ContentBox>
                 <HeaderTypo>
                     Một số khoá học <br /> mẫu của chúng tôi
                 </HeaderTypo>
                 <OutlinedButton>
                     <OutlinedTypo>Xem các khoá học</OutlinedTypo>
                 </OutlinedButton>
-            </Box>
+            </ContentBox>
 
             <StyledGrid container>
                 {courses.map((course) => (
-                    <StyledCard id={course.id} sx={course.id === '1' ? { margin: '0 105px' } : {}}>
+                    <StyledCard id={course.id} sx={course.id === '1' ? { margin: { md: '0 105px', sm: '0' } } : {}}>
                         <ImgBox>
                             <img width={240} height={174} src={course.img} alt="img" />
                         </ImgBox>
@@ -179,7 +211,7 @@ const Courses = () => {
                     </StyledCard>
                 ))}
             </StyledGrid>
-        </Box>
+        </MainBox>
     );
 };
 
