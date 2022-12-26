@@ -52,7 +52,8 @@ const Typo5 = styled(Typography)(({ theme }) => ({
     lineHeight: '40px',
     letterSpacing: '3.2px',
     color: '#000',
-    marginLeft: '50px'
+    marginLeft: '50px',
+    zIndex: 4
 }));
 
 const Typo6 = styled(Typography)(({ theme }) => ({
@@ -63,7 +64,8 @@ const Typo6 = styled(Typography)(({ theme }) => ({
     letterSpacing: '5px',
     color: '#000',
     textTransform: 'uppercase',
-    marginRight: '42px'
+    marginRight: '42px',
+    zIndex: 4
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -92,7 +94,27 @@ const OutlinedButton = styled(Button)(({ theme }) => ({
     border: 'solid 1px #3649F9'
 }));
 
-const SplashBox = styled(Box)(({ theme }) => ({
+const SplashBox1 = styled(Box)(({ theme }) => ({
+    width: '450px',
+    height: '400px',
+    position: 'absolute',
+    top: '300px',
+    right: '280px',
+    backgroundColor: '#fff',
+    zIndex: 1,
+    borderRadius: '250px 750px 250px 750px / 750px 250px 750px 250px',
+    animation: 'wobble1 7s ease-in-out alternate infinite',
+    '@keyframes wobble1': {
+        '0%': {
+            borderRadius: '35% 65% 51% 49% / 44% 40% 60% 56%'
+        },
+        '100%': {
+            borderRadius: '68% 32% 47% 53% / 34% 49% 51% 66%'
+        }
+    }
+}));
+
+const SplashBox2 = styled(Box)(({ theme }) => ({
     width: '450px',
     height: '400px',
     position: 'absolute',
@@ -101,30 +123,45 @@ const SplashBox = styled(Box)(({ theme }) => ({
     backgroundColor: '#fcc0ad',
     zIndex: 1,
     borderRadius: '250px 750px 250px 750px / 750px 250px 750px 250px',
-    animation: 'wobble 5s ease-in-out alternate infinite',
-    '@keyframes wobble': {
+    animation: 'wobble2 7s ease-in-out alternate infinite',
+    '@keyframes wobble2': {
         '0%': {
-            borderRadius: '30% 70% 27% 73% / 40% 56% 44% 60%'
+            borderRadius: '38% 62% 47% 53% / 68% 49% 51% 32%'
         },
         '100%': {
-            borderRadius: '68% 32% 47% 53% / 34% 49% 51% 66%'
+            borderRadius: '68% 32% 63% 37% / 41% 67% 33% 59%'
         }
     }
 }));
 
+const ContentBox = styled(Box)(({ theme }) => ({
+    width: '440px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginRight: '220px',
+    marginBottom: '30px'
+}));
+
+const AvaBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    width: '450px',
+    height: '150px',
+    position: 'absolute',
+    top: '560px',
+    right: '200px',
+    backgroundColor: '#fff',
+    borderRadius: '30px',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    zIndex: 3
+}));
+
 const Intro = () => {
     return (
-        <Box>
+        <Box sx={{ height: '900px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', height: '700px' }}>
-                <Box
-                    sx={{
-                        width: '440px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        marginRight: '220px',
-                        marginBottom: '30px'
-                    }}>
+                <ContentBox>
                     <Typo1>Đào tạo trực tuyến cùng MindX</Typo1>
                     <Typo2>Cơ hội đào tạo tốt nhất</Typo2>
                     <Typo3>Hãy đăng nhập để tham gia khoá học của chúng tôi</Typo3>
@@ -136,29 +173,16 @@ const Intro = () => {
                             <Typo4>Tìm hiểu thêm</Typo4>
                         </OutlinedButton>
                     </Box>
-                </Box>
+                </ContentBox>
 
-                <SplashBox sx={{ right: '280px', backgroundColor: '#fff' }} />
-                <SplashBox />
+                <SplashBox1 />
+                <SplashBox2 />
 
                 <Box sx={{ marginTop: '40px', zIndex: 2 }}>
                     <img src={avatar} alt="Avatar" height={480} />
                 </Box>
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        width: '450px',
-                        height: '150px',
-                        position: 'absolute',
-                        top: '560px',
-                        right: '200px',
-                        backgroundColor: '#fff',
-                        borderRadius: '30px',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        zIndex: 3
-                    }}>
+                <AvaBox>
                     <Typo5>199+</Typo5>
                     <Typo6>
                         Học viên đã <br /> hoàn thành <br /> khoá học
@@ -170,15 +194,8 @@ const Intro = () => {
                         }}>
                         <img src={graph} alt="Graph" />
                     </Box>
-                </Box>
+                </AvaBox>
             </Box>
-
-            <Box
-                sx={{
-                    height: '200px',
-                    background: 'linear-gradient(7deg, #fff 50%, #252B42 50%)'
-                }}
-            />
         </Box>
     );
 };
