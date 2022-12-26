@@ -1,4 +1,4 @@
-import { Box, OutlinedInput, styled, Typography } from '@mui/material';
+import { Box, styled, Typography } from '@mui/material';
 
 import logo from '../assets/logo/logo.png';
 import facebook from '../assets/social/facebook.png';
@@ -51,9 +51,19 @@ const StyledInput = styled('input')(({ theme }) => ({
     paddingLeft: '10px'
 }));
 
+const MainBox = styled(Box)(({ theme }) => ({
+    height: '350px',
+    margin: '60px 0 98px',
+    display: 'flex',
+    justifyContent: 'center',
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column'
+    }
+}));
+
 const Footer = () => {
     return (
-        <Box sx={{ height: '350px', margin: '60px 0 98px', display: 'flex', justifyContent: 'center' }}>
+        <MainBox>
             <Box sx={{ width: '190px', marginRight: '30px' }}>
                 <img src={logo} width={170} height={78} alt="logo" />
                 <DesTypo>
@@ -79,7 +89,7 @@ const Footer = () => {
                     <img src={send} alt="arrow" />
                 </Box>
             </Box>
-        </Box>
+        </MainBox>
     );
 };
 

@@ -133,8 +133,7 @@ const RotateBox = styled(Box)(({ theme }) => ({
     top: 880,
     left: -80,
     [theme.breakpoints.down('md')]: {
-        width: '50%',
-        height: '50%'
+        display: 'none'
     }
 }));
 

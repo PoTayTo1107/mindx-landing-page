@@ -175,10 +175,19 @@ const StatBox = styled(Box)(({ theme }) => ({
     margin: '0 40px 20px'
 }));
 
+const DivBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    height: '700px',
+    [theme.breakpoints.down('md')]: {
+        flexDirection: 'column'
+    }
+}));
+
 const Intro = () => {
     return (
         <MainBox>
-            <Box sx={{ display: 'flex', justifyContent: 'center', height: '700px' }}>
+            <DivBox>
                 <ContentBox>
                     <Typo1>Đào tạo trực tuyến cùng MindX</Typo1>
                     <Typo2>Cơ hội đào tạo tốt nhất</Typo2>
@@ -209,7 +218,7 @@ const Intro = () => {
                         <img src={graph} alt="Graph" />
                     </StatBox>
                 </AvaBox>
-            </Box>
+            </DivBox>
         </MainBox>
     );
 };
