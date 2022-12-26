@@ -1,13 +1,13 @@
-import { Box, Button, Card, CardContent, CardMedia, Grid, styled, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Grid, styled, Typography } from '@mui/material';
 
 import img2 from '../assets/imgs/2.png';
 import img3 from '../assets/imgs/3.png';
 import img4 from '../assets/imgs/4.png';
 
 const courses = [
-    { title: 'Lập trình Python', time: '4 tiết', img: img2 },
-    { title: 'Khoa học máy tính 101', time: '4 months', img: img3 },
-    { title: 'Lập trình Python: Ứng dụng thực tế', time: '4 months', img: img4 }
+    { title: 'Lập trình Python', time: '4 tiết', img: img2, id: '0' },
+    { title: 'Khoa học máy tính 101', time: '4 months', img: img3, id: '1' },
+    { title: 'Lập trình Python: Ứng dụng thực tế', time: '4 months', img: img4, id: '2' }
 ];
 
 const StyledGrid = styled(Grid)({
@@ -19,7 +19,6 @@ const StyledGrid = styled(Grid)({
 const StyledCard = styled(Card)(({ theme }) => ({
     height: '390px',
     width: '270px',
-    margin: '0 52.5px',
     zIndex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -40,13 +39,19 @@ const ImgBox = styled(Box)(({ theme }) => ({
 }));
 
 const HeaderTypo = styled(Typography)(({ theme }) => ({
-    color: '#000',
-    zIndex: 10
+    position: 'relative',
+    zIndex: 1,
+    textTransform: 'none',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: '44px',
+    lineHeight: '56px',
+    letterSpacing: '0.2px'
 }));
 
 const Courses = () => {
     return (
-        <Box>
+        <Box sx={{ margin: '0 250px' }}>
             <Box
                 sx={{
                     height: '760px',
@@ -58,21 +63,25 @@ const Courses = () => {
                     left: -60
                 }}
             />
-            <Box>
-                <HeaderTypo variant="h1">Một số khoá học của chúng tôi</HeaderTypo>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <HeaderTypo>
+                    Một số khoá học <br /> mẫu của chúng tôi
+                </HeaderTypo>
                 <Button>
                     <Typography>Xem các khoá học</Typography>
                 </Button>
             </Box>
 
-            <StyledGrid container spacing={1} md={12}>
+            <StyledGrid>
                 {courses.map((course) => (
-                    <StyledCard>
+                    <StyledCard id={course.id} sx={course.id === '1' ? { margin: '0 105px' } : {}}>
                         <ImgBox>
                             <img width={240} height={174} src={course.img} alt="error" />
                         </ImgBox>
                         <CardContent>
-                            <Typography variant="h5">{course.title}</Typography>
+                            <Typography noWrap gutterBottom variant="h5" component="div" align="center">
+                                {course.title}
+                            </Typography>
                         </CardContent>
                     </StyledCard>
                 ))}
