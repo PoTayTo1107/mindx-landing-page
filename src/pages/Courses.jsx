@@ -69,11 +69,12 @@ const OutlinedButton = styled(Button)(({ theme }) => ({
     padding: '15px 20px',
     borderRadius: '12px',
     marginTop: '40px',
-    '&:hover': { backgroundColor: '#fff' },
+    '&:hover': { backgroundColor: '#3649F9', color: '#fff' },
     width: '210px',
     height: '60px',
     cursor: 'pointer',
     border: 'solid 2px #3649F9',
+    color: '#3649F9',
     [theme.breakpoints.down('md')]: {
         display: 'none'
     }
@@ -85,8 +86,7 @@ const OutlinedTypo = styled(Typography)(({ theme }) => ({
     fontWeight: '400',
     fontSize: '18px',
     lineHeight: '22px',
-    textAlign: 'center',
-    color: '#3649F9'
+    textAlign: 'center'
 }));
 
 const TitleTypo = styled(Typography)(({ theme }) => ({
@@ -114,25 +114,10 @@ const Button1 = styled(Button)(({ theme }) => ({
     padding: '15px 20px',
     borderRadius: '6px',
     marginTop: '27px',
-    '&:hover': { backgroundColor: '#fff' },
+    '&:hover': { backgroundColor: '#3649F9', color: '#fff' },
     width: '240px',
     height: '40px',
     cursor: 'pointer',
-    border: 'solid 1px #3649F9',
-    textTransform: 'none',
-    fontWeight: 400
-}));
-
-const Button2 = styled(Button)(({ theme }) => ({
-    backgroundColor: '#3649F9',
-    padding: '15px 20px',
-    borderRadius: '6px',
-    marginTop: '27px',
-    '&:hover': { backgroundColor: '#3649F9' },
-    width: '240px',
-    height: '40px',
-    cursor: 'pointer',
-    color: '#fff',
     border: 'solid 1px #3649F9',
     textTransform: 'none',
     fontWeight: 400
@@ -206,7 +191,7 @@ const Courses = () => {
                                     <IconTypo>{course.time}</IconTypo>
                                 </Box>
                             </Box>
-                            {course.id % 2 === 0 ? <Button1>Xem khoá học</Button1> : <Button2>Xem khoá học</Button2>}
+                            <Button1>Xem khoá học</Button1>
                         </CardContent>
                     </StyledCard>
                 ))}

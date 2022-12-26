@@ -84,6 +84,12 @@ const DataBox = styled(Box)(({ theme }) => ({
     }
 }));
 
+const SocialBox = styled(Box)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        margin: '0 23%'
+    }
+}));
+
 const Footer = () => {
     return (
         <MainBox>
@@ -93,9 +99,11 @@ const Footer = () => {
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
                     volutpat ut wisi enim ad minim
                 </DesTypo>
-                <img src={facebook} width={16} height={16} style={{ margin: '0 5px' }} alt="facebook" />
-                <img src={twitter} width={16} height={16} style={{ margin: ' 0 5px 0 7px' }} alt="twitter" />
-                <img src={instagram} width={16} height={16} style={{ margin: '0 5px' }} alt="instagram" />
+                <SocialBox>
+                    <img src={facebook} width={16} height={16} style={{ margin: '0 5px' }} alt="facebook" />
+                    <img src={twitter} width={16} height={16} style={{ margin: ' 0 5px 0 7px' }} alt="twitter" />
+                    <img src={instagram} width={16} height={16} style={{ margin: '0 5px' }} alt="instagram" />
+                </SocialBox>
             </ContentBox>
             {data.map((item) => (
                 <DataBox>
